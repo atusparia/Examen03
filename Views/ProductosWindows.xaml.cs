@@ -26,5 +26,16 @@ namespace Examen03.Views
             this.DataContext = new ViewModelListarProductos();
         }
 
+        private void btnAgregar_Click(object sender, RoutedEventArgs e)
+        {
+            LimpiarControles();
+        }
+
+        private void LimpiarControles()
+        {
+            this.txtNombre.Text = "";
+            this.txtPrecio.Text = "";
+            this.txtDescripcion.Text = "";
+        }
     }
 }

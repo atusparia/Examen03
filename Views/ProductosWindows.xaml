@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Examen03.Views"
         mc:Ignorable="d"
-        Title="ProductosWindows" Height="450" Width="400">
+        Title="ProductosWindows" Height="600" Width="550">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -13,36 +13,32 @@
         </Grid.RowDefinitions>
         <StackPanel  Grid.Row="0">
             <TextBlock Text="Nombre:" Margin="5" FontWeight="Bold"/>
-            <TextBox x:Name="txtNombre" Text="{Binding Nombre}" Margin="5" Height="30" />
+            <TextBox x:Name="txtNombre" Text="{Binding Nombre}" Margin="5" Height="30" Style="{StaticResource inputStyle}" />
 
             <TextBlock Text="Precio:" Margin="5" FontWeight="Bold"/>
-            <TextBox x:Name="txtPrecio" Text="{Binding Precio}" Margin="5" Width="80" Height="30" HorizontalAlignment="Left"/>
+            <TextBox x:Name="txtPrecio" Text="{Binding Precio}" Margin="5" Width="80" Height="30" Style="{StaticResource inputStyle}" />
 
             <TextBlock Text="Descripcion:" Margin="5" FontWeight="Bold"/>
-            <TextBox x:Name="txtDescripcion" Text="{Binding Descripcion}" Margin="5" Height="30"/>
+            <TextBox x:Name="txtDescripcion" Text="{Binding Descripcion}" Margin="5" Height="30" Style="{StaticResource inputStyle}"/>
 
-            <Button  x:Name="btnAgregar" Content="Agregar Producto"  Height="30" 
-                Background="BlanchedAlmond" Command="{Binding AgregarCommand}"
-                Margin="5"/>
+            <Button x:Name="btnAgregar" Content="Agregar Producto"  Height="30" Width="120" Foreground="White" FontWeight="Bold"
+                Background="Green" Command="{Binding AgregarCommand}"
+                Margin="5" Click="btnAgregar_Click"/>
 
             <ListView ItemsSource="{Binding Productos}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="Datos Producto" HorizontalAlignment="Left" >
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Datos Producto" HorizontalAlignment="Left" Foreground="Blue" FontWeight="Bold"></TextBlock>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding Nombre}" Width="100"></TextBlock>
-                                <TextBlock Text="{Binding Precio}" Width="15"></TextBlock>
-                                <TextBlock Text="{Binding Descripcion}" Width="150"></TextBlock>
-                            </StackPanel>
-                        </TextBlock>
+                                <TextBlock Text="{Binding Precio}" Width="15" Margin="10,0,0,0" ></TextBlock>
+                                <TextBlock Text="{Binding Descripcion}" Width="350" Margin="10,0,0,0" ></TextBlock>
+                            </StackPanel>                        
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>                
             </ListView>
         </StackPanel>
-
-        
-
     </Grid>
 </Window>
